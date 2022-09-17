@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Designation;
 use App\Role;
-use App\User;
+use App\Goal;
 use App\Department;
 use DB;
 use Illuminate\Http\Request;
@@ -18,6 +18,7 @@ class GoalController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
+		$goals= Goal::get();
 
 		// $employees = User::query()
 		// 	->join('designations', 'users.designation_id', '=', 'designations.id')
@@ -27,8 +28,8 @@ class GoalController extends Controller {
 		// 	->orderBy('users.employee_id', 'ASC')
 		// 	->get()
 		// 	->toArray();
-		return view('administrator.goal.manage_goals'
-	                                                   );
+		return view('administrator.goal.manage_goals',compact('goals'));
+	                                                   
 	}
 
 	public function print() {
@@ -86,9 +87,9 @@ class GoalController extends Controller {
 		$result->attachRole(Role::where('name', $request->role)->first());
 
 		if (!empty($inserted_id)) {
-			return redirect('/people/goals/create')->with('message', 'Add successfully.');
+			return redirect('/goals/create')->with('message', 'Add successfully.');
 		}
-		return redirect('/people/goals/create')->with('exception', 'Operation failed !');
+		return redirect('/goals/create')->with('exception', 'Operation failed !');
 	}
 
 	/**
@@ -103,9 +104,9 @@ class GoalController extends Controller {
 			->update(['activation_status' => 1]);
 
 		if (!empty($affected_row)) {
-			return redirect('/people/goals')->with('message', 'Activate successfully.');
+			return redirect('/goals')->with('message', 'Activate successfully.');
 		}
-		return redirect('/people/goals')->with('exception', 'Operation failed !');
+		return redirect('/goals')->with('exception', 'Operation failed !');
 	}
 
 	/**
@@ -120,9 +121,9 @@ class GoalController extends Controller {
 			->update(['activation_status' => 0]);
 
 		if (!empty($affected_row)) {
-			return redirect('/people/goals')->with('message', 'Deactive successfully.');
+			return redirect('/goals')->with('message', 'Deactive successfully.');
 		}
-		return redirect('/people/goals')->with('exception', 'Operation failed !');
+		return redirect('/goals')->with('exception', 'Operation failed !');
 	}
 
 	/**

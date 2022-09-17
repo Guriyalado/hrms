@@ -46,8 +46,8 @@
                 <li><a href="<?php echo e(url('/goals/create')); ?>"><i class="fa fa-circle-o"></i><?php echo e(__(' New Goal')); ?></a></li>
                 <li><a href="<?php echo e(url('/goals')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(__('Manage Goal')); ?></a></li>
                 
-                 <li><a href="<?php echo e(url('goal/clients/create')); ?>"><i class="fa fa-circle-o"></i><?php echo e(__(' New Customer')); ?></a></li>
-                <li><a href="<?php echo e(url('/goals/clients')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(__('Manage Goal')); ?></a></li>
+                 <!-- <li><a href="<?php echo e(url('goal/create')); ?>"><i class="fa fa-circle-o"></i><?php echo e(__(' New Customer')); ?></a></li> -->
+               <!--  <li><a href="<?php echo e(url('/goals/clients')); ?>"><i class="fa fa-circle-o"></i> <?php echo e(__('Manage Goal')); ?></a></li> -->
                
               
             </ul>

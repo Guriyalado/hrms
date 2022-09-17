@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i>{{ __('Dashboard') }} </a></li>
-            <li><a href="{{ url('/people/goals') }}">{{ __('Goal') }}</a></li>
+            <li><a href="{{ url('/goals') }}">{{ __('Goal') }}</a></li>
             <li class="active">{{ __('Add Goal') }}</li>
         </ol>
     </section>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!-- /.box-header -->
-            <form action="{{ url('people/goals/store') }}" method="post" name="employee_add_form">
+            <form action="{{ url('/goals/store') }}" method="post" name="goal_add_form">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="row">
@@ -177,7 +177,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="{{ url('/people/goals') }}" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i>{{ __('Cancel') }} </a>
+                    <a href="{{ url('/goals') }}" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i>{{ __('Cancel') }} </a>
                     <button type="submit" class="btn btn-primary btn-flat"><i class="icon fa fa-plus"></i> {{ __('Add') }}</button>
                 </div>
             </form>
@@ -187,11 +187,10 @@
     <!-- /.content -->
 </div>
 <script type="text/javascript">
-    document.forms['employee_add_form'].elements['gender'].value = "{{ old('gender') }}";
-        document.forms['employee_add_form'].elements['id_name'].value = "{{ old('id_name') }}";
-    document.forms['employee_add_form'].elements['designation_id'].value = "{{ old('designation_id') }}";
-    document.forms['employee_add_form'].elements['role'].value = "{{ old('role') }}";
-    document.forms['employee_add_form'].elements['joining_position'].value = "{{ old('joining_position') }}";
-    document.forms['employee_add_form'].elements['marital_status'].value = "{{ old('marital_status') }}";
+   
+    // document.forms['goal_add_form'].elements['id_name'].value = "{{ old('id_name') }}";
+    document.forms['goal_add_form'].elements['designation_id'].value = "{{ old('designation_id') }}";
+    document.forms['goal_add_form'].elements['role'].value = "{{ old('role') }}";
+    
 </script>
 @endsection

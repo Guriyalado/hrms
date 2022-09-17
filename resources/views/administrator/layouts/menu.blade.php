@@ -46,8 +46,8 @@
                 <li><a href="{{ url('/goals/create') }}"><i class="fa fa-circle-o"></i>{{ __(' New Goal') }}</a></li>
                 <li><a href="{{ url('/goals') }}"><i class="fa fa-circle-o"></i> {{ __('Manage Goal') }}</a></li>
                 
-                 <li><a href="{{ url('goal/clients/create') }}"><i class="fa fa-circle-o"></i>{{ __(' New Customer') }}</a></li>
-                <li><a href="{{ url('/goals/clients') }}"><i class="fa fa-circle-o"></i> {{ __('Manage Goal') }}</a></li>
+                 <!-- <li><a href="{{ url('goal/create') }}"><i class="fa fa-circle-o"></i>{{ __(' New Customer') }}</a></li> -->
+               <!--  <li><a href="{{ url('/goals/clients') }}"><i class="fa fa-circle-o"></i> {{ __('Manage Goal') }}</a></li> -->
                
               
             </ul>

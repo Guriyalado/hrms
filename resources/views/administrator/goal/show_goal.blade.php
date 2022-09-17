@@ -10,8 +10,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i>{{ __('Dashboard') }} </a></li>
-            <li><a>{{ __('People') }}</a></li>
-            <li><a href="{{ url('/people/goal') }}">{{ __('Goal') }}</a></li>
+            <!-- <li><a>{{ __('People') }}</a></li> -->
+            <li><a href="{{ url('/goal') }}">{{ __('Goal') }}</a></li>
             <li class="active">{{ __('Details') }}</li>
         </ol>
     </ol>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="box-body">
-            <a href="{{ url('/people/goals') }}" class="btn btn-primary btn-flat"><i class="fa fa-arrow-left"></i> {{ __('Back') }}</a>
+            <a href="{{ url('/goals') }}" class="btn btn-primary btn-flat"><i class="fa fa-arrow-left"></i> {{ __('Back') }}</a>
             <hr>
             <div id="printable_area">
                 <table class="table table-bordered">
@@ -72,7 +72,7 @@
                         <tr>
                            <td>{{ __('Designation') }}</td>
                             <td>
-                               {{ $employee->designation }}
+                               {{ $goal->designation }}
                             </td>
                         </tr>
                         
@@ -82,7 +82,7 @@
                              <td>{{ __('Department') }}</td>
                             <td>
                                 @foreach($departments as $department)
-                                @if($employee->joining_position == $department->id)
+                                @if($goal->joining_position == $department->id)
                                 {{ $department->department }}
                                 @endif
                                 @endforeach
@@ -97,14 +97,14 @@
             <div class="btn-group btn-group-justified">
                 @if ($goal->activation_status == 1)
                 <div class="btn-group">
-                    <a href="{{ url('/people/goals/deactive/' . $goal->id)}}" class="tip btn btn-success btn-flat" data-toggle="tooltip" data-original-title="Click to deactive">
+                    <a href="{{ url('/goals/deactive/' . $goal->id)}}" class="tip btn btn-success btn-flat" data-toggle="tooltip" data-original-title="Click to deactive">
                         <i class="fa fa-arrow-down"></i>
                         <span class="hidden-sm hidden-xs"> {{ __('Active') }}</span>
                     </a>
                 </div>
                 @else
                 <div class="btn-group">
-                    <a href="{{ url('/people/goals/active/' . $goal->id)}}" class="tip btn btn-warning btn-flat" data-toggle="tooltip" data-original-title="Click to active">
+                    <a href="{{ url('/goals/active/' . $goal->id)}}" class="tip btn btn-warning btn-flat" data-toggle="tooltip" data-original-title="Click to active">
                         <i class="fa fa-arrow-up"></i>
                         <span class="hidden-sm hidden-xs"> {{ __('Deactive') }}</span>
                     </a>
@@ -118,13 +118,13 @@
                 </div>
                
                 <div class="btn-group">
-                    <a href="{{ url('/people/goals/edit/' . $goal->id) }}" class="tip btn btn-warning tip btn-flat" title="" data-original-title="Edit Product">
+                    <a href="{{ url('/goals/edit/' . $goal->id) }}" class="tip btn btn-warning tip btn-flat" title="" data-original-title="Edit Product">
                         <i class="fa fa-edit"></i>
                         <span class="hidden-sm hidden-xs"> {{ __('Edit') }}</span>
                     </a>
                 </div>
                 <div class="btn-group">
-                    <a href="{{ url('/people/goals/delete/' . $goal->id) }}" class="tip btn btn-danger btn-flat" data-toggle="tooltip" data-original-title="Click to delete" onclick="return confirm('Are you sure to delete this ?');">
+                    <a href="{{ url('/goals/delete/' . $goal->id) }}" class="tip btn btn-danger btn-flat" data-toggle="tooltip" data-original-title="Click to delete" onclick="return confirm('Are you sure to delete this ?');">
                         <i class="fa fa-arrow-up"></i>
                         <span class="hidden-sm hidden-xs"> {{ __('Delete') }}</span>
                     </a>

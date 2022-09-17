@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo e(url('/dashboard')); ?>"><i class="fa fa-dashboard"></i><?php echo e(__('Dashboard')); ?> </a></li>
-            <li><a href="<?php echo e(url('/people/goals')); ?>"><?php echo e(__('Goal')); ?></a></li>
+            <li><a href="<?php echo e(url('/goals')); ?>"><?php echo e(__('Goal')); ?></a></li>
             <li class="active"><?php echo e(__('Add Goal')); ?></li>
         </ol>
     </section>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!-- /.box-header -->
-            <form action="<?php echo e(url('people/goals/store')); ?>" method="post" name="employee_add_form">
+            <form action="<?php echo e(url('/goals/store')); ?>" method="post" name="goal_add_form">
                 <?php echo e(csrf_field()); ?>
 
                 <div class="box-body">
@@ -180,7 +180,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="<?php echo e(url('/people/goals')); ?>" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i><?php echo e(__('Cancel')); ?> </a>
+                    <a href="<?php echo e(url('/goals')); ?>" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i><?php echo e(__('Cancel')); ?> </a>
                     <button type="submit" class="btn btn-primary btn-flat"><i class="icon fa fa-plus"></i> <?php echo e(__('Add')); ?></button>
                 </div>
             </form>
@@ -190,12 +190,11 @@
     <!-- /.content -->
 </div>
 <script type="text/javascript">
-    document.forms['employee_add_form'].elements['gender'].value = "<?php echo e(old('gender')); ?>";
-        document.forms['employee_add_form'].elements['id_name'].value = "<?php echo e(old('id_name')); ?>";
-    document.forms['employee_add_form'].elements['designation_id'].value = "<?php echo e(old('designation_id')); ?>";
-    document.forms['employee_add_form'].elements['role'].value = "<?php echo e(old('role')); ?>";
-    document.forms['employee_add_form'].elements['joining_position'].value = "<?php echo e(old('joining_position')); ?>";
-    document.forms['employee_add_form'].elements['marital_status'].value = "<?php echo e(old('marital_status')); ?>";
+   
+    // document.forms['goal_add_form'].elements['id_name'].value = "<?php echo e(old('id_name')); ?>";
+    document.forms['goal_add_form'].elements['designation_id'].value = "<?php echo e(old('designation_id')); ?>";
+    document.forms['goal_add_form'].elements['role'].value = "<?php echo e(old('role')); ?>";
+    
 </script>
 <?php $__env->stopSection(); ?>
 

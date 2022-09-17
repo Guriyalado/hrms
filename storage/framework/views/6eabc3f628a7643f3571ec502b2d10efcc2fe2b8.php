@@ -29,7 +29,7 @@
             </div>
             <div class="box-body">
                 <div  class="col-md-3">
-                <a href="<?php echo e(url('/people/goals/create')); ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i><?php echo e(__(' Add')); ?> </a>
+                <a href="<?php echo e(url('/goals/create')); ?>" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i><?php echo e(__(' Add')); ?> </a>
             </div>
             <div  class="col-md-3">
               <button type="button" class="tip btn btn-primary btn-flat" title="Print" data-original-title="Label Printer" onclick="printDiv('printable_area')">

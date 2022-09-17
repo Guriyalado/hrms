@@ -29,7 +29,7 @@
             </div>
             <div class="box-body">
                 <div  class="col-md-3">
-                <a href="{{ url('/people/goals/create') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i>{{ __(' Add') }} </a>
+                <a href="{{ url('/goals/create') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i>{{ __(' Add') }} </a>
             </div>
             <div  class="col-md-3">
               <button type="button" class="tip btn btn-primary btn-flat" title="Print" data-original-title="Label Printer" onclick="printDiv('printable_area')">
@@ -82,7 +82,7 @@
                             <td class="text-center">{{ date("d F Y", strtotime($goal['created_at'])) }}</td>
                            
                             <td class="text-center">
-                               <a href="{{ url('/people/goals/edit/' . $goal['id']) }}"><i class="icon fa fa-edit"></i> {{ __('Edit') }}</a>
+                               <a href="{{ url('/goal/edit/' . $goal['id']) }}"><i class="icon fa fa-edit"></i> {{ __('Edit') }}</a>
                             </td>
                         </tr>
                         @endforeach

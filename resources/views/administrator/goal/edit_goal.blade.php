@@ -10,7 +10,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i>    {{ __('Dashboard') }}</a></li>
-            <li><a href="{{ url('/people/goals') }}">   {{ __('Goal') }}</a></li>
+            <li><a href="{{ url('/goals') }}">   {{ __('Goal') }}</a></li>
             <li class="active">   {{ __('Edit Goal details') }}</li>
         </ol>
     </section>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!-- /.box-header -->
-            <form action="{{ url('people/goals/update/'.$goal['id']) }}" method="post" name="goal_edit_form">
+            <form action="{{ url('/goals/update/'.$goal['id']) }}" method="post" name="goal_edit_form">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="row">
@@ -46,7 +46,7 @@
                                 <i class="icon fa fa-warning"></i> {{ Session::get('exception') }}
                             </div>
                             @else
-                            <p class="text-yellow">{{ __(' Enter goal details. All (*)field are required. (Default password for added user is 12345678)') }}</p>
+                           <!--  <p class="text-yellow">{{ __(' Enter goal details. All (*)field are required. (Default password for added user is 12345678)') }}</p> -->
                             @endif
                         </div>
                         <!-- /.Notification Box -->
@@ -154,7 +154,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{ url('/people/goals') }}" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i> {{ __(' Cancel') }}</a>
+                        <a href="{{ url('/goals') }}" class="btn btn-danger btn-flat"><i class="icon fa fa-close"></i> {{ __(' Cancel') }}</a>
                         <button type="submit" class="btn btn-primary btn-flat"><i class="icon fa fa-plus"></i> {{ __(' Update') }}</button>
                     </div>
                 </form>
@@ -164,11 +164,11 @@
         <!-- /.content -->
     </div>
     <script type="text/javascript">
-        document.forms['employee_edit_form'].elements['gender'].value = "{{ $employee['gender'] }}";
-        document.forms['employee_edit_form'].elements['id_name'].value = "{{ $employee['id_name'] }}";
-        document.forms['employee_edit_form'].elements['marital_status'].value = "{{ $employee['marital_status'] }}";
-        document.forms['employee_edit_form'].elements['designation_id'].value = "{{ $employee['designation_id'] }}";
-        document.forms['employee_edit_form'].elements['role'].value = "{{ $employee['role'] }}";
-        document.forms['employee_edit_form'].elements['joining_position'].value = "{{ $employee['joining_position'] }}";
+       
+        // document.forms['goal_edit_form'].elements['id_name'].value = "{{ $goals['id_name'] }}";
+        
+        document.forms['goal_edit_form'].elements['designation_id'].value = "{{ $goal['designation_id'] }}";
+        document.forms['goal_edit_form'].elements['role'].value = "{{ $goal['role'] }}";
+       
     </script>
     @endsection
