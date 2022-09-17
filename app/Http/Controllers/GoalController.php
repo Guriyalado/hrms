@@ -33,15 +33,9 @@ class GoalController extends Controller {
 	}
 
 	public function print() {
-		$employees = User::query()
-			->join('designations', 'users.designation_id', '=', 'designations.id')
-			->whereBetween('users.access_label', [2, 3])
-			->where('users.deletion_status', 0)
-			->select('users.id', 'users.employee_id', 'users.name', 'users.email', 'users.present_address', 'users.contact_no_one', 'designations.designation')
-			->orderBy('users.id', 'DESC')
-			->get()
-			->toArray();
-		return view('administrator.goal.goals_print', compact('goals'));
+		$goal = Goal::get()
+			
+		return view('administrator.goal.goals_print', compact('goal'));
 	}
 
 	/**
@@ -167,7 +161,7 @@ class GoalController extends Controller {
 			->select('id', 'designation')
 			->get();
 
-		$pdf = PDF::loadView('administrator.goal.pdf', compact('employee',  'designations'));
+		$pdf = PDF::loadView('administrator.goal.pdf', compact('goal',  'designations'));
 		$file_name = 'EMP-' . $goal->id . '.pdf';
 		return $pdf->download($file_name);
 	}
@@ -179,7 +173,7 @@ class GoalController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id) {
-		$employee = User::find($id)->toArray();
+		$goal = Goal::find($id)->toArray();
 		$designations = Designation::where('deletion_status', 0)
 			->where('publication_status', 1)
 			->orderBy('designation', 'ASC')
@@ -213,7 +207,7 @@ class GoalController extends Controller {
 		
 		]);
 
-		$goal->egoal_id = $request->get('goal_id');
+		$goal->goal_id = $request->get('goal_id');
 		$goal->title = $request->get('title');
 		$goal->time_bounding = $request->get('time_bounding');
 		
@@ -226,9 +220,9 @@ class GoalController extends Controller {
 			->update(['role_id' => $request->input('role')]);
 
 		if (!empty($affected_row)) {
-			return redirect('/people/goals')->with('message', 'Update successfully.');
+			return redirect('/goals')->with('message', 'Update successfully.');
 		}
-		return redirect('/people/goals')->with('exception', 'Operation failed !');
+		return redirect('/goals')->with('exception', 'Operation failed !');
 	}
 
 	/**
@@ -242,9 +236,9 @@ class GoalController extends Controller {
 			->update(['deletion_status' => 1]);
 
 		if (!empty($affected_row)) {
-			return redirect('/people/goals')->with('message', 'Delete successfully.');
+			return redirect('/goals')->with('message', 'Delete successfully.');
 		}
-		return redirect('/people/goals')->with('exception', 'Operation failed !');
+		return redirect('/goals')->with('exception', 'Operation failed !');
 	}
 
 }
